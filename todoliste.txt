@@ -1,0 +1,4 @@
+[tasks]
+1|1|programmieren
+2|0|python lernen
+3|0|CV vervollst„ndigen

@@ -10,10 +10,10 @@
 class Befehle {
 public: void fuehrebefehlaus(const int nummer, verwaltung &v);
 private:
-    void befehl1(verwaltung &v); //task hinzufügen
-    void befehl2(verwaltung &v); //tasks anzeigen
-    void befehl3(verwaltung &v); //task erledigen
-    void befehl4(verwaltung &v); // task löschen
+    void addtask(verwaltung &v); //task hinzufügen
+    void listtasks(verwaltung &v); //tasks anzeigen
+    void completetask(verwaltung &v); //task erledigen
+    void deltask(verwaltung &v); // task löschen
 };
 
 
