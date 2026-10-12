@@ -6,18 +6,38 @@ int main() {
 
     verwaltung v;
     Befehle b;
+    const std::string dateiname = "todoliste.txt";
+
+    try {
+        v.laden(dateiname);
+        std::cout << "aufgaben wurden geladen.\n";
+    } catch (const std::exception& e) {
+       std::cout<< "aufgaben konnten nicht geladen werden" << e.what() << "\n";
+    }
+
     int eingabe =-1;
     std::cout << "----TO-DO-Liste---- \n";
     std::cout << "1 - Aufgabe erstellen\n";
     std::cout << "2 - Aufgaben anzeigen\n";
     std::cout << "3 - Aufgabe erledigen\n";
     std::cout << "4 - Aufgabe loeschen\n";
+    std::cout << "0 - Programm Beenden\n";
     while(eingabe != 0) {
         std::cout << "Befehl: \n";
         std::cin >> eingabe;
-        b.fuehrebefehlaus(eingabe, v);
+        try {
+            b.fuehrebefehlaus(eingabe, v);
+        }
+        catch (const std::exception& e) {
+            std::cout << "Fehler: " << e.what() << '\n';
+        }
     }
 
+    try {
+        v.speichern(dateiname);
+    } catch (const std::exception& e) {
+        std::cout << "Fehler:" << e.what() << '\n';
+    }
     std::cout << "Programm beendet.\n";
     return 0;
 
